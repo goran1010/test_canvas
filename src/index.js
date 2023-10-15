@@ -19,11 +19,22 @@ function createCanvas() {
   }
 }
 
+function createCanvasResize() {
+  size = canvas.clientWidth;
+  canvas.style.width = `${size}px`;
+  canvas.style.height = `${size}px`;
+  drawCells();
+}
+
 function drawCells() {
   while (canvas.firstChild) {
     canvas.removeChild(canvas.firstChild);
   }
   let cells = document.querySelector(`.numberOfCells>input`).value;
+  if (!cells) {
+    console.log("No cells");
+    return;
+  }
   for (let i = 0; i < cells; i++) {
     let row = document.createElement(`div`);
     canvas.appendChild(row);
@@ -43,5 +54,6 @@ function drawCells() {
 
 setSize.addEventListener(`keyup`, createCanvas);
 setCells.addEventListener(`keyup`, drawCells);
+canvas.addEventListener(`mouseup`, createCanvasResize);
 
 createCanvas();
