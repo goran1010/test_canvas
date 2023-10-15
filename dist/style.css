@@ -36,7 +36,7 @@ main {
 .canvas {
   background-color: bisque;
   border: 1px solid black;
-  resize: horizontal;
+  resize: both;
   overflow: hidden;
 }
 .canvas > div {
