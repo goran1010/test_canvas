@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 0.3rem;
+}
+header > div > div {
+  display: flex;
+  gap: 0.5rem;
+}
+main {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.canvas {
+  background-color: bisque;
+  border: 1px solid black;
+}
+.canvas > div {
+  display: flex;
+}
+.canvas > div > div {
+  border: 1px solid black;
+}
+.showCell {
+  background-color: red;
+}
