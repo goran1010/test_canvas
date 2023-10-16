@@ -3,11 +3,8 @@ const canvas = document.querySelector(`.canvas`);
 const setSize = document.querySelector(`.sizeOfCanvas>input`);
 const setCells = document.querySelector(`.numberOfCells>input`);
 
-let size;
-let cells;
-
 function drawCanvas() {
-  size = document.querySelector(`.sizeOfCanvas>input`).value;
+  let size = document.querySelector(`.sizeOfCanvas>input`).value;
   canvas.style.width = `${size}px`;
   canvas.style.height = `${size}px`;
 }
@@ -20,10 +17,9 @@ function createCanvas() {
 }
 
 function createCanvasResize() {
-  size = canvas.clientWidth;
   // Added +2 to the size, since clientWidth doesn't include border
-  canvas.style.width = `${size + 2}px`;
-  canvas.style.height = `${size + 2}px`;
+  canvas.style.width = `${canvas.clientWidth + 2}px`;
+  canvas.style.height = `${canvas.clientHeight + 2}px`;
   drawCells();
 }
 
@@ -41,8 +37,8 @@ function drawCells() {
     canvas.appendChild(row);
     for (let j = 0; j < cells; j++) {
       let singleCell = document.createElement(`div`);
-      singleCell.style.width = `${size / cells}px`;
-      singleCell.style.height = `${size / cells}px`;
+      singleCell.style.width = `${canvas.clientWidth / cells}px`;
+      singleCell.style.height = `${canvas.clientHeight / cells}px`;
 
       singleCell.addEventListener(`mouseover`, () => {
         singleCell.classList.toggle(`showCell`);
