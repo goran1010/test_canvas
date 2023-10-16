@@ -21,8 +21,9 @@ function createCanvas() {
 
 function createCanvasResize() {
   size = canvas.clientWidth;
-  canvas.style.width = `${size}px`;
-  canvas.style.height = `${size}px`;
+  // Added +2 to the size, since clientWidth doesn't include border
+  canvas.style.width = `${size + 2}px`;
+  canvas.style.height = `${size + 2}px`;
   drawCells();
 }
 
